@@ -33,7 +33,7 @@ public class Car {
         }
         String lowercaseMake = make.toLowerCase();
         switch (lowercaseMake) {
-            case "holden", "porsche" -> this.make = lowercaseMake;
+            case "holden", "porsche" -> this.make = make;
             default -> {
                 this.make = "unsupported";
             }

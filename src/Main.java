@@ -2,13 +2,17 @@ package src;
 
 public class Main {
     public static void main(String[] args) {
-        Car car = new Car();
+//        Account bobsAccount = new Account("1234", 1000.00, "bob", "bob@bob.com", "01000000000");
+        Account bobsAccount = new Account();
 
-        System.out.println(car.isConvertible());
-        car.setConvertible(false);
-        System.out.println(car.isConvertible());
-        car.setMake("Holden");
-        System.out.println(car.getMake());
-        car.describeCar();
+        System.out.println(bobsAccount.getNumber());
+//        bobsAccount.setNumber("1234");
+//        bobsAccount.setBalance(1000.00);
+//        bobsAccount.setCustomerName("bob");
+//        bobsAccount.setCustomerPhone("01000000000");
+//        bobsAccount.setGetCustomerEmail("bob@bob.com");
+//        bobsAccount.depositFunds(250);
+//        bobsAccount.withdrawFunds(350);
     }
+
 }
