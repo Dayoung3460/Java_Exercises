@@ -6,19 +6,17 @@ public class Movie {
     }
 
     public void watchMovie() {
-        // getClass()
-        // java.lang.Object 중의 하나
-        // 현재 참조하고 있는(runtime) 클래스 정보를 리턴
-        // 정보 메소드들
-        // getName(): 해당 객체 이름
-        // getSuperclass(): 해당 객체 상위 클래스 이름
-        // getDeclareFields(): 해당 객채의 선언된 필드 정보를 배열로
-
-        // tip: java.lang.Object 클래스는 자바에서 만드는 모든 클래스들의 root.
-        // 모든 클래스는 java.lang.Object를 super class로 가짐
-
         String instanceType = this.getClass().getSimpleName();
         System.out.println(title + " is a " + instanceType + " film");
+    }
+
+    public static Movie getMovie(String type, String title) {
+        return switch (type.toUpperCase().charAt(0)) {
+            case 'A' -> new Adventure(title);
+            case 'C' -> new Comedy(title);
+            case 'S' -> new ScienceFiction(title);
+            default -> new Movie(title);
+        };
     }
 }
 
