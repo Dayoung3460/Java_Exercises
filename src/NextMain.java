@@ -19,5 +19,18 @@ public class NextMain {
 
         var plane = new Comedy("Airplane");
         plane.watchComedy();
+
+        Object unknownObject = Movie.getMovie("S", "Star wars");
+        if(unknownObject.getClass().getSimpleName() == "Comedy") {
+            Comedy c = (Comedy) unknownObject;
+            c.watchComedy();
+            // instanceof operator(연산자): 객체가 어떤 클래스 타입인지, 어떤 클래스를 상속 받았는지 확인
+        } else if(unknownObject instanceof Adventure) {
+            ((Adventure) unknownObject).watchAdventure();
+            // ScienceFiction syfy = (ScienceFiction) unknownObject
+            // 이 과정 생략 가능. 바로 참조변수 생성
+        }else if(unknownObject instanceof ScienceFiction syfy) {
+            syfy.watchScienceFiction();
+        }
     }
 }
