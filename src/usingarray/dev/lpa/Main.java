@@ -35,6 +35,15 @@ public class Main {
         // thirdArray 다 복사 하고 남은 공간엔 0으로 채워짐
         int[] largerArray = Arrays.copyOf(thirdArray, 15);
         System.out.println(Arrays.toString(largerArray)); // [98, 23, 10, 5, 33, 69, 2, 2, 14, 17, 0, 0, 0, 0, 0]
+
+        String[] sArray = { "Able", "Jane", "Mark", "Ralph", "David" };
+        Arrays.sort(sArray);
+        System.out.println(Arrays.toString(sArray));
+
+        System.out.println(Arrays.binarySearch((sArray), "Mark"));
+        if(Arrays.binarySearch((sArray), "Mark") >= 0) {
+            System.out.println("Found Mark in the list");
+        }
     }
 
     private static int[] getRandomArray(int len) {
