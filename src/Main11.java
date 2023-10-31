@@ -17,14 +17,14 @@ public class Main11 {
 //        regularMeal.setDrinkSize("LARGE");
 //        regularMeal.printItemizedList();
 
-//        MealOrder secondMeal = new MealOrder("turkey", "7-up", "chili");
-//        secondMeal.addBurgerToppings("LETTUCE", "CHEESE", "MAYO");
-//        secondMeal.printItemizedList();
+        MealOrder secondMeal = new MealOrder("turkey", "7-up", "chili");
+        secondMeal.addBurgerToppings("LETTUCE", "CHEESE", "MAYO");
+        secondMeal.printItemizedList();
 
-        MealOrder deluxeMeal = new MealOrder("deluxe", "7-up", "chili");
-        deluxeMeal.addBurgerToppings("AVOCADO", "BACON", "LETTUCE", "CHEESE", "MAYO");
-        deluxeMeal.setDrinkSize("SMALL");
-        deluxeMeal.printItemizedList();
+//        MealOrder deluxeMeal = new MealOrder("deluxe", "7-up", "chili");
+//        deluxeMeal.addBurgerToppings("AVOCADO", "BACON", "LETTUCE", "CHEESE", "MAYO");
+//        deluxeMeal.setDrinkSize("SMALL");
+//        deluxeMeal.printItemizedList();
     }
 
 }
