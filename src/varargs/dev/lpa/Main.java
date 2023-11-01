@@ -14,6 +14,9 @@ public class Main {
         System.out.println("_".repeat(20));
         printText();
 
+        String[] sArray = {"first", "second", "third", "fourth", "fifth"};
+        System.out.println(String.join(", ", sArray));
+
         System.out.println("_".repeat(20));
         // 문자에 구분자를 주는 이런 방식으로도 사용 가능
         sum("-", "a", "b", "c");
