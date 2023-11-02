@@ -12,12 +12,14 @@ public class Main {
         System.out.println("min = " + returnedMin);
 
         // by 나
-        int[] myReversedArray = myReverse(returnedArray);
-        System.out.println("my reverse = " + Arrays.toString(myReversedArray));
+        System.out.println("my reverse = " + Arrays.toString(myReverse(returnedArray)));
 
         // by 강사
-        teacherReverse(returnedArray);
-        System.out.println("teacher reverse = " + Arrays.toString(returnedArray));
+        int[] copiedArray = Arrays.copyOf(returnedArray, returnedArray.length);
+        teacherReverse(copiedArray);
+        System.out.println("teacher reverse = " + Arrays.toString(copiedArray));
+
+        System.out.println("reverseCopiedArray = " + Arrays.toString(reverse2(returnedArray)));
     }
     private static int[] readIntegers() {
         Scanner scanner = new Scanner(System.in);
@@ -63,5 +65,14 @@ public class Main {
             array[i] = array[maxIndex - i];
             array[maxIndex - i ] = temp;
         }
+    }
+
+    private static int[] reverse2(int[] array) {
+        int[] reversedArray = new int[array.length];
+        int maxIndex = array.length - 1;
+        for(int el : array) {
+            reversedArray[maxIndex--] = el;
+        }
+        return reversedArray;
     }
 }
