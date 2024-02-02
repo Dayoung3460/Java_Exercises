@@ -1,4 +1,4 @@
-package lamdaexpresstions.dev.lpa;
+package lambdaexpresstions.dev.lpa;
 
 @FunctionalInterface
 public interface Operation<T> {

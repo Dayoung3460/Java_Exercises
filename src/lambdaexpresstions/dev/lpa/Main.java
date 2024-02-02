@@ -1,4 +1,4 @@
-package lamdaexpresstions.dev.lpa;
+package lambdaexpresstions.dev.lpa;
 
 import java.util.ArrayList;
 import java.util.Arrays;
