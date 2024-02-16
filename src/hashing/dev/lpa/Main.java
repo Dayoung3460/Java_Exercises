@@ -36,13 +36,31 @@ public class Main {
         // cText, dText, eText는 서로 다른 객체를 참조하고 있음
 
         System.out.println(" ");
-        
+
         PlayingCard aceHearts = new PlayingCard("Hearts", "Ace");
         PlayingCard kingClubs = new PlayingCard("Clubs", "King");
         PlayingCard queenSpades = new PlayingCard("Spades", "Queen");
 
         List<PlayingCard> cards = Arrays.asList(aceHearts, kingClubs, queenSpades);
         cards.forEach((s) -> System.out.println(s + ": " + s.hashCode()));
+
+        System.out.println("----------------------");
+        Set<PlayingCard> deck = new HashSet<>();
+
+        // set은 루프돌 때 리스트의 순서대로 안돌 수도 있음
+
+        for (PlayingCard c : cards) {
+            System.out.println(c);
+            // add()는 성공적으로 요소 추가하면 트루 반환
+            // set에는 중복값이 add 될 수 없음
+            // add()가 실행될 때 PlayingCard의 오버라이딩된 equals() 실행함
+            // cards요소(c)끼리 hashCode 비교해서 같은 hashCode값이 중복되면 안됨
+            if (!deck.add(c)) {
+                System.out.println("Found a duplicated for " + c);
+            }
+        }
+        System.out.println(deck);
+
     }
 
 }
