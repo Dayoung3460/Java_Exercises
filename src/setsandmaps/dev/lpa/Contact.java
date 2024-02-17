@@ -54,5 +54,38 @@ public class Contact {
         return newContact;
     }
 
-    ;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Contact contact = (Contact) o;
+
+        return getName().equals(contact.getName());
+    }
+
+    @Override
+    public int hashCode() {
+        return 33 * getName().hashCode();
+    }
+
+    public void addEmail(String companyName) {
+        String[] names = name.split(" ");
+        String email = "%c%s@%s.com".formatted(name.charAt(0), names[names.length - 1],
+                companyName.replaceAll(" ", "").toLowerCase());
+        if (!emails.add(email)) {
+            System.out.println(name + " already has email " + email);
+        } else {
+            System.out.println(name + " now has email " + email);
+        }
+    }
+
+    public void replaceEmailIfExists(String oldEmail, String newEmail) {
+        // hashSet은 요소를 replace시켜주는 기본 메서드가 없음. 지우고 추가해줘야함
+        if (emails.contains(oldEmail)) {
+            emails.remove(oldEmail);
+            emails.add(newEmail);
+        }
+    }
 }
