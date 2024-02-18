@@ -47,5 +47,19 @@ public class TreeSetMain {
         System.out.println("Last element = " + copiedSet.pollLast());
         copiedSet.forEach(System.out::println);
         System.out.println("---------------");
+
+        Contact daffy = new Contact("Daffy Duck");
+        Contact daisy = new Contact("Daisy Duck");
+        Contact snoopy = new Contact("Snoopy");
+        Contact archie = new Contact("Archie");
+
+        for (Contact c : List.of(daffy, daisy, last, snoopy)) {
+            //ceiling(): 제공된 값보다 크거나 같은 값 중 가장 작은 값 (인자값 포함)
+            System.out.printf("ceiling(%s)=%s%n", c.getName(), fullSet.ceiling(c));
+            //higher(): 제공된 값보다 큰 값 중 가장 작은 값 (인자값 미포함)
+            System.out.printf("higher(%s)=%s%n", c.getName(), fullSet.higher(c));
+        }
+        System.out.println("-----------------");
+
     }
 }
