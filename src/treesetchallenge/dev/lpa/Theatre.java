@@ -1,6 +1,7 @@
 package treesetchallenge.dev.lpa;
 
 import java.util.NavigableSet;
+import java.util.Set;
 import java.util.TreeSet;
 
 public class Theatre {
@@ -56,6 +57,62 @@ public class Theatre {
             }
         }
         return null;
+    }
+
+    // 4 B C 1 10
+    private boolean validate(int count, char first, char last, int min, int max) {
+        boolean result = (min > 0 || seatsPerRow >= count || (max - min + 1) >= count);
+        result = result && seats.contains(new Seat(first, min));
+        if (!result) {
+            System.out.printf("Invalid! %1$d seats between " +
+                            "%2$c[%3$d-%4$d]-%5$c[%3$d-%4$d] Try again",
+                    count, first, min, max, last);
+            System.out.printf(": Seat must be between %s and %s%n",
+                    seats.first().seatNum, seats.last().seatNum);
+        }
+        return result;
+    }
+
+    //    bookSeats(rodgersNYC, 4, 'B', 'C', 1, 10);
+    public Set<Seat> reserveSeats(int count, char minRow, char maxRow,
+                                  int minSeat, int maxSeat) {
+        char lastValid = seats.last().seatNum.charAt(0); // J
+        maxRow = (maxRow < lastValid) ? maxRow : lastValid; // C
+        if (!validate(count, minRow, maxRow, minSeat, maxSeat)) {
+            return null;
+        }
+        NavigableSet<Seat> selected = null;
+        for (char letter = minRow; letter <= maxRow; letter++) {
+            //기준값1 ~ 기준값2 사이의 값을 가져옴
+            NavigableSet<Seat> contiguous = seats.subSet(
+                    new Seat(letter, minSeat), true,
+                    new Seat(letter, maxSeat), true);
+            int index = 0;
+            Seat first = null;
+            for (Seat current : contiguous) {
+                if (current.reserved) {
+                    index = 0;
+                    // 반복문 현재 단계 중단
+                    continue;
+                }
+                first = (index == 0) ? current : first;
+                if (++index == count) {
+                    selected = contiguous.subSet(first, true,
+                            current, true);
+                    // 반복문 전체를 중단
+                    break;
+                }
+            }
+            if (selected != null) {
+                break;
+            }
+        }
+        Set<Seat> reservedSeats = null;
+        if (selected != null) {
+            selected.forEach(s -> s.reserved = true);
+            reservedSeats = new TreeSet<>(selected);
+        }
+        return reservedSeats;
     }
 
     class Seat implements Comparable<Seat> {
