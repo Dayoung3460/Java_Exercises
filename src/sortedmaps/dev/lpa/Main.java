@@ -26,7 +26,7 @@ public class Main {
         addPurchase("Grag Brady", python, 129.99);
 
         purchases.forEach((key, value) -> System.out.println(key + ": " + value));
-        System.out.println("-----------------");
+        System.out.println("------------------");
         students.forEach((key, value) -> System.out.println(key + ": " + value));
 
         NavigableMap<LocalDate, List<Purchase>> datedPurchases = new TreeMap<>();
